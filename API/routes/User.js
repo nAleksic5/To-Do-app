@@ -4,7 +4,7 @@ const router = express.Router();
 const bcrypt = require("bcrypt");
 const jwt = require('jsonwebtoken');
 const mongoose = require( "mongoose" );
-require('dotenv').config();
+const dotenv = require('dotenv').config();
 
 const User = require("../models/user");
 
@@ -12,14 +12,14 @@ const User = require("../models/user");
 router.post("/signup", (req, res, next)=>{
     User.find({email: req.body.email})
     .exec()
-    .then(result=>{
-        if(result.length() >= 1){
+    .then(user=>{
+        if(user.length > 0){
             return res.status(401).json({
                 message: "User already exists!"
             })
         }
         else{
-            bcrypt.hash(req.body.password, 10, (hash, err)=>{
+            bcrypt.hash(req.body.password, 10, (err, hash)=>{
                 if(err){
                     res.status(500).json({
                         error: err
@@ -52,8 +52,8 @@ router.post("/signup", (req, res, next)=>{
 router.post('/login', (req, res, next)=>{
     User.find({email: req.body.email})
     .exec()
-    .then(result=>{
-        if(result < 1){
+    .then(user=>{
+        if(user < 1){
             res.status(401).json({
                 message: 'Auth failed!'
             });
@@ -75,7 +75,7 @@ router.post('/login', (req, res, next)=>{
                    expiresIn: "1h"
                 }
                 );
-            return response.status(200).json({
+            return res.status(200).json({
                 message: 'Auth successful',
                 token: token
             })
