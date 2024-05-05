@@ -5,10 +5,11 @@ const morgan = require("morgan");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 
-const taskRoutes = require("./api/routes/Task");
-const userRoutes = require("./api/routes/User");
+const taskRoutes = require("./API/routes/Task");
+const userRoutes = require("./API/routes/User");
 
-mongoose.connect("mongodb+srv://nidzoaleksic:"+ process.env.MONGO_ATLAS_PW +"@cluster0.pnp1k4s.mongodb.net/");
+//MONGO_ATLAS_PW=hmruWv0sductSHHD
+mongoose.connect("mongodb+srv://nidzoaleksic:"+ "hmruWv0sductSHHD" +"@cluster0.pnp1k4s.mongodb.net/");
 mongoose.Promise = global.Promise;
 
 app.use(morgan("dev"));
