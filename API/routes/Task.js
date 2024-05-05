@@ -6,7 +6,7 @@ const dotenv = require('dotenv').config();
 const Task = require('../models/task');
 
 router.get('/', (req, res, next)=>{
-    Product.find()
+    Task.find()
     .exec()
     .then(docs=>{
         const response = {
@@ -21,7 +21,7 @@ router.get('/', (req, res, next)=>{
                     active:doc.active,
                     request:{
                         type: "GET",
-                        Url:`localhost:3000/task/${TaskId}`
+                        Url:`localhost:3000/task/${doc._id}`
                     }
                 }
             })
@@ -36,12 +36,12 @@ router.get('/', (req, res, next)=>{
 });
 
 router.post('/', (req,res, next)=>{
-    if(req.body.priority.length > 0 && (req.body.priority != "low" || req.body.priority != "medium" || req.body.priority != "high")){
+    if(req.body.priority > " " && (req.body.priority != "low" || req.body.priority != "medium" || req.body.priority != "high")){
         return res.status(500).json({
             message: "Invalid task priority!",
             priorityOptions: "low, medium, high"
         })
-    }else if(req.body.status.length > 0 && (req.body.status != "done" || req.body.status != "in progress" || req.body.status != "pending")){
+    }else if(req.body.status > " " && (req.body.status != "done" || req.body.status != "in progress" || req.body.status != "pending")){
         return res.status(500).json({
             message: "Invalid task status",
             statusOptions: "pending, in progress, done"
@@ -51,7 +51,7 @@ router.post('/', (req,res, next)=>{
         _id: new mongoose.Types.ObjectId(),
         name: req.body.name,
         description: req.body.description,
-        status: req.body.description,
+        status: req.body.status,
         priority: req.body.priority,
         active: true
     });
