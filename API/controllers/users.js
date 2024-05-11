@@ -7,14 +7,15 @@ const dotenv = require('dotenv').config();
 exports.userSignup = (req, res, next) => {
     User.find({email: req.body.email})
     .exec()
-    .then(user=>{
-        if(user.length > 0){
+    .then(result=>{
+        if(result.length >= 1){
             return res.status(401).json({
                 message: "User already exists!"
             })
         }
         else{
             bcrypt.hash(req.body.password, 10, (err, hash)=>{
+                console.log(hash);
                 if(err){
                     res.status(500).json({
                         error: err
@@ -27,7 +28,7 @@ exports.userSignup = (req, res, next) => {
                     });
                     user.save()
                     .then(result=>{
-                        console.log(user)
+                        console.log(user);
                         res.status(201).json({
                             message: "User created"
                         });
@@ -67,7 +68,7 @@ exports.userLogin = (req, res, next) => {
                 },
                 process.env.JWT_KEY,
                 {
-                   expiresIn: "1h"
+                   expiresIn: "10h"
                 }
                 );
             return res.status(200).json({
