@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="UUAY6n6ssNzGgC8z1DjZ" name="Page-1">
-        <mxGraphModel dx="662" dy="361" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" background="none" math="0" shadow="0">
+        <mxGraphModel dx="662" dy="242" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" background="none" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -68,7 +68,7 @@
                         <mxPoint x="605" y="100" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="2" style="edgeStyle=none;html=1;" edge="1" parent="1" source="gU2htmq4c46HI2TYkAU_-16">
+                <mxCell id="2" style="edgeStyle=none;html=1;" parent="1" source="gU2htmq4c46HI2TYkAU_-16" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint x="720" y="130" as="targetPoint"/>
                     </mxGeometry>
@@ -100,27 +100,27 @@
                 <mxCell id="gU2htmq4c46HI2TYkAU_-25" value="PATCH" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="545" y="280" width="60" height="20" as="geometry"/>
                 </mxCell>
-                <mxCell id="6" style="edgeStyle=none;html=1;" edge="1" parent="1" source="3">
+                <mxCell id="6" style="edgeStyle=none;html=1;" parent="1" source="3" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint x="780" y="200" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="3" value="/trash" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="3" value="/trash" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="720" y="100" width="120" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="5" value="GET" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="5" value="GET" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="720" y="160" width="60" height="20" as="geometry"/>
                 </mxCell>
-                <mxCell id="7" value="/:taskId" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="7" value="/:taskId" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="720" y="200" width="120" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="8" value="GET" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="8" value="GET" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="720" y="260" width="60" height="20" as="geometry"/>
                 </mxCell>
-                <mxCell id="9" value="DELETE" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="9" value="DELETE" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="780" y="260" width="60" height="20" as="geometry"/>
                 </mxCell>
-                <mxCell id="10" value="PATCH" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                <mxCell id="10" value="POST" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="720" y="280" width="60" height="20" as="geometry"/>
                 </mxCell>
             </root>
