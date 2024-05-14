@@ -257,6 +257,31 @@ exports.Restore_Deleted_Task = (req, res, next) => {
     }) 
 }
 
-exports.Patch_Task = (req, res, next) => {
+exports.Patch_Task = (req, res, next) =>{
+    const id = req.params.TaskId;
+    const updateOps = {};
+    for(const ops of req.body){
+        updateOps[ops.propName] = ops.value;
+    }
+    Task.findByIdAndUpdate(id, {$set: updateOps}) //[{"propName": {"key1": "value1"}},{"propName": {"key2": "value2"}}... ]
+    .exec()
+    .then(response=>{
+        res.status(200).json({
+            message: "Task patched",
+            request: {
+                type: 'GET',
+                url:   `http://localhost:3000/tasks/${id}`
+            },
+            Task: response
+        });
+    })
+    .catch(err=>{
+        res.status(500).json({
+            error:err
+        })
+    })
+}
+
+exports.Query_Handler = (req, res, next) => {
     
 }

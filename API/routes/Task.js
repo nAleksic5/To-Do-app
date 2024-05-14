@@ -23,6 +23,8 @@ router.get('/:TaskId', checkAuth, TaskController.Get_One_Task);
 
 router.post("/trash/:TaskId", checkAuth, TaskController.Restore_Deleted_Task);
 
-router.patch('/:TaskId', checkAuth, TaskController.Patch_Task)
+router.patch('/:TaskId', checkAuth, TaskController.Patch_Task);
+
+router.get('/search', checkAuth, TaskController.Query_Handler);
 
 module.exports = router;
