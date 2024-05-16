@@ -284,4 +284,26 @@ exports.Patch_Task = (req, res, next) =>{
 
 exports.Query_Handler = (req, res, next) => {
     
-}
+
+    const queryParams = req.query
+    
+    Task.find(queryParams)
+        .exec()
+        .then(tasks => {
+            if (tasks.length === 0) {
+                return res.status(404).json({
+                    message: "No tasks found!"
+                });
+            }
+            res.status(200).json({
+                message: 'Tasks found!',
+                tasks: tasks
+            });
+        })
+        .catch(err => {
+            res.status(500).json({
+                error: err,
+                message: "query failed!"
+            });
+        });
+};

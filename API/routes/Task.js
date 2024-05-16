@@ -25,6 +25,6 @@ router.post("/trash/:TaskId", checkAuth, TaskController.Restore_Deleted_Task);
 
 router.patch('/:TaskId', checkAuth, TaskController.Patch_Task);
 
-router.get('/search', checkAuth, TaskController.Query_Handler);
+router.patch('/', checkAuth, TaskController.Query_Handler);
 
 module.exports = router;
